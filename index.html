@@ -25,7 +25,7 @@
         
           
           
-          <meta name="theme-color" content="#4051b5">
+          <meta name="theme-color" content="#ffffff">
         
       
     
@@ -52,7 +52,9 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="white" data-md-color-accent="red">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
       
   
     
@@ -222,15 +224,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#19" class="md-nav__link">
-    19种主体配色
+  <a href="#_3" class="md-nav__link">
+    明暗主题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#16" class="md-nav__link">
-    16种鼠标悬停超链接文字配色
+  <a href="#_4" class="md-nav__link">
+    主色
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    辅色
   </a>
   
 </li>
@@ -426,15 +435,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#19" class="md-nav__link">
-    19种主体配色
+  <a href="#_3" class="md-nav__link">
+    明暗主题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#16" class="md-nav__link">
-    16种鼠标悬停超链接文字配色
+  <a href="#_4" class="md-nav__link">
+    主色
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    辅色
   </a>
   
 </li>
@@ -472,9 +488,24 @@
 <h2 id="_2"><strong>写在最后</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <hr />
 <p>想分享什么都可以，学习无关也没事，也可以发一些自己写的文章。</p>
-<p>我只希望在这里大一的学弟学妹能够不在迷迷茫茫中度过一年，我希望你们在大一时就能有比较成熟的大学目标，让你们看到，原来参加那些比赛只需要这么简单的准备就行了，原来那个好牛逼的比赛我现在努力大二就可以得奖了，等等诸如此类，我在大二时看到别人早在刚入大学就开始练习ctf或者acm，而我大二才开始，看到他们大一就比我牛逼了的时候真的一直都很后悔为什么我大一时没有往这些比赛上靠拢，原来我看不懂那些东西是因为没学过这个。</p>
+<p>我只希望在这里大一的学弟学妹能够不在迷迷茫茫中度过一年，我希望你们在大一时就能有比较成熟的大学目标，让你们看到，原来参加那些比赛只需要这么简单的准备就行了，原来那个好牛逼的比赛我现在努力大二就可以得奖了，等等诸如此类，不让大家输在起跑线上。</p>
 <p>项目组以外的同学同样可以在这里查阅资料，也希望你们能贡献一些资料</p>
-<h2 id="19"><strong>19种主体配色</strong><a class="headerlink" href="#19" title="Permanent link">&para;</a></h2>
+<h2 id="_3"><strong>明暗主题</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="tx-switch">
+<button data-md-color-scheme="default"><code>Default</code></button>
+<button data-md-color-scheme="slate"><code>Slate</code></button>
+</div>
+<script>
+  var buttons = document.querySelectorAll("button[data-md-color-scheme]")
+  Array.prototype.forEach.call(buttons, function(button) {
+    button.addEventListener("click", function() {
+      document.body.dataset.mdColorScheme = this.dataset.mdColorScheme;
+      localStorage.setItem("data-md-color-scheme",this.dataset.mdColorScheme);
+    })
+  })
+</script>
+
+<h2 id="_4"><strong>主色</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <hr />
 <p>鼠标点击即可临时改变当前页主体颜色</p>
 <div class="tx-switch">
@@ -509,7 +540,7 @@
   })
 </script>
 
-<h2 id="16"><strong>16种鼠标悬停超链接文字配色</strong><a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<h2 id="_5"><strong>辅色</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <hr />
 <p>鼠标点击即可临时改变当前页鼠标悬停超链接文字颜色</p>
 <div class="tx-switch">
