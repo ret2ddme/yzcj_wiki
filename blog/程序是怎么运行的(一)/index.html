@@ -1,0 +1,706 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="ddme">
+      
+      
+        <link rel="canonical" href="https://ddme-code.github.io/yzcj_wiki/blog/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%90%E8%A1%8C%E7%9A%84%28%E4%B8%80%29/">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+    
+    
+      
+        <title>程序是怎样在计算机上运行的 - 园之长久</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../static/css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="white" data-md-color-accent="red">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://ddme-code.github.io/yzcj_wiki/" title="园之长久" class="md-header__button md-logo" aria-label="园之长久">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            园之长久
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              程序是怎样在计算机上运行的
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ddme-code/yzcj_wiki/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ddme-code/yzcj_wiki/
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://ddme-code.github.io/yzcj_wiki/" title="园之长久" class="md-nav__button md-logo" aria-label="园之长久">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    园之长久
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ddme-code/yzcj_wiki/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ddme-code/yzcj_wiki/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        介绍
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="介绍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          介绍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome to Our Wiki
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treasure/" class="md-nav__link">
+        镇组之宝
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        资源
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="资源" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          资源
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resource/freshman/" class="md-nav__link">
+        大一科目
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resource/sophomore/" class="md-nav__link">
+        大二科目
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resource/junior/" class="md-nav__link">
+        大三科目
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resource/senior/" class="md-nav__link">
+        大四科目
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        学习经验
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="学习经验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          学习经验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experience/acm/" class="md-nav__link">
+        acm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experience/ctf/" class="md-nav__link">
+        ctf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experience/further_education/" class="md-nav__link">
+        读研
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        一些文章
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="一些文章" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          一些文章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          程序是怎样在计算机上运行的
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        程序是怎样在计算机上运行的
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    补充一些基础知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    正式开始
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    补充一些基础知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    正式开始
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ddme-code/yzcj_wiki/edit/master/docs/blog/程序是怎么运行的(一).md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="_1">程序是怎么运行的(一)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">前言<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我从大一时就好奇，我们写的代码是怎么在机器上运行的呢，但是又一直得不到解答，仿佛在市面上找不到一本专门讲这个的书。在那时的我眼里计算机是个很神奇的东西，繁杂而又庞大，里面似乎充满了魔法，但是，当我知道计算机里的一切都是用代码写出来的时候，我看待计算机就不再神秘</p>
+<p>另外我不能保证看完这一系列文章就能具备自己造台计算机的能力，但是一定能让和我有一样迷惑的你，对计算机不再感到那么神秘</p>
+<h2 id="_3">补充一些基础知识<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>因为笔者目前大二，学识浅薄，所以难免有些地方写的不正确，希望看到的人能给与指正</p>
+<p>首先，本系列文章重点就是讲解我们写的程序是如何被计算机运行的，我打算分两类写，一类是<code>c/c++</code>这种编译型语言，另一类是<code>python/java</code>这种解释型语言</p>
+<p>什么是编译型语言？简单来说就是每次运行时都要编译一遍，相必大家刚学c语言打出来的代码都是点击一个快捷键然后弹出一个黑框，然后放<code>.c</code>源码的路径下多了一个<code>.exe</code>文件，如果是在linux下运行会生成一个没有后缀的文件(有没有后缀看心情)，这就是编译型语言的特点，即要想运行必须经过编译，其实不只是编译，中间有好几步处理过程，这个等以后有机会了再讲，现在只需要知道的是，编译型语言需要经过一系列处理生成可执行文件后才可以执行。而解释型语言就不太一样了，单拿python来说，从写完代码到执行出结果，中间不需要生成一个叫可执行文件的东西。</p>
+<p>那为什么会有这种差别呢？这个要扯起来就要扯到cpu那了，我本来打算按编译器-&gt;操作系统-&gt;cpu的顺序讲的，但是现在看来顺序不太好组织，干脆想到哪讲到哪吧</p>
+<h2 id="_4">正式开始<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>首先解释cou执行的指令到底是什么，如果学过组原的话，大家应该记得中间有一章是讲操作码的，但是大家可能和我一样，当时只想着怎么做题了，至于在cpu中这玩意到底是干什么用的可能没怎么在意，其实那就是cpu执行的指令，有人说那不是废话吗，我也知道那是cpu执行的指令。</p>
+<p>那么为什么那么一串数字cpu就能执行呢？其实每个cpu架构都有自己的一套指令集，而指令集就规定了哪个数字对应cpu执行什么操作，至于为什么能够做到让cpu识别出来这么个数字，进而去执行指令集指定的操作，这点要去问你的数电老师了，这点我不解释，你可以把他想成这是由先贤用电焊焊cpu上的程序就行了，非要知道原理的话我推荐你读<code>&lt;&lt;编码----隐藏在计算机软硬件背后的语言&gt;&gt;</code>。</p>
+<p>另外前面也说了**每个cpu架构都有自己的一套指令集**，这也就意味着不同的cpu架构对应的指令集是不同的，这带来的最直接的结果就是**不同架构上的程序是不能跨架构执行的**，拿个例子来说就是，比如x86架构指定<code>1为加指令,2为减指令</code>，然后紧跟着操作码之后的就是操作数，然后操作数又分立即数，巴拉巴拉什么什么，我知道大家不爱听这些所以我帮你们过滤掉了，那么<code>1+1</code>写成cpu能执行的指令流就是<code>01 01 01</code>，写的有点简略哈，咱就假设一下，别当真，真x86架构的指令集不可能那么儿戏的，那么我们再看mips架构，或者arm架构也行，反正我也不知道他们正确的指令集是什么样，规定<code>1为减，2为加</code>，对应的<code>01 01 01</code>就变成了1-1了，我写的这些主要是为了各位看的方便，在实际计算机中可不是这样的哈各位，别被我带偏了。</p>
+<p>ok，经过上面的例子各位也看明白了，显然是无法跨架构执行的，说跨架构有点别扭，还是说跨平台吧，在x86下是1+1的指令跑别的架构上就有可能变成1-1了。</p>
+<p>接下来带大家看一看真实的x86架构的指令</p>
+<p>我们就拿大家最熟悉的c语言来实例，先写一个1+1的程序，我相信在座的各位一定能闭着眼打出这串代码</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// test.c</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>我们来编译他，我个人比较喜欢linux，不喜欢windows，要说为什么？其实是因为windows内核的命名风格老是爱全大写我不喜欢，linux全小写，仅此而已</p>
+<p>在linux下打开终端，确保源码.c文件在当前路径下，然后输入</p>
+<p><code>gcc test.c -o test</code></p>
+<p>这里生成的文件在windows下是不能运行的，原因不是因为指令集不同，只是因为对可执行文件所规定的标准不同而已，在linux下可执行文件遵守elf文件格式，在windows下是pe格式，不多扯了。</p>
+<p>以上命令执行完后可能会报些<code>warn</code>，不用管，看下当前路径有没有新出现一个test文件就完事，只要出现了就成功了</p>
+<p><img alt="image-20210422154720169" src="https://i.loli.net/2021/04/22/ZEc3tSbTp8idIO7.png" /></p>
+<p>我的就没报错，出乎意料了哈，然后看到确实生成了test文件</p>
+<p>我们运行一下试试？运行个屁啊，没输入没输出，运行出来个啥？</p>
+<p>我教你们看反汇编</p>
+<p>输入<code>objdump -d test</code></p>
+<p>是不是出来一大堆看不懂的东西？没关系，往下拉，拉到main那里，就是这里</p>
+<p><img alt="image-20210422155141985" src="https://i.loli.net/2021/04/22/mNPSFLTIWGMQgZ9.png" /></p>
+<p>把内容单独贴出来给大家看</p>
+<div class="highlight"><pre><span></span><code><span class="err">00000000000005</span><span class="nf">fa</span> <span class="err">&lt;</span><span class="no">main</span><span class="err">&gt;</span><span class="p">:</span>
+ <span class="err">5</span><span class="nl">fa:</span>   <span class="err">55</span>                      <span class="nf">push</span>   <span class="nv">%rbp</span>
+ <span class="err">5</span><span class="nl">fb:</span>   <span class="err">48</span> <span class="err">89</span> <span class="nf">e5</span>                <span class="no">mov</span>    <span class="nv">%rsp</span><span class="p">,</span><span class="nv">%rbp</span>
+ <span class="err">5</span><span class="nl">fe:</span>   <span class="nf">c7</span> <span class="mi">45</span> <span class="no">fc</span> <span class="mi">02</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>    <span class="no">movl</span>   <span class="no">$0x2</span><span class="p">,-</span><span class="mi">0x4</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span>
+ <span class="err">605:</span>   <span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>          <span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+ <span class="err">60</span><span class="nl">a:</span>   <span class="err">5</span><span class="nf">d</span>                      <span class="no">pop</span>    <span class="nv">%rbp</span>
+ <span class="err">60</span><span class="nl">b:</span>   <span class="nf">c3</span>                      <span class="no">retq</span>   
+ <span class="mi">60</span><span class="no">c</span><span class="p">:</span>   <span class="mi">0</span><span class="no">f</span> <span class="mi">1</span><span class="no">f</span> <span class="mi">40</span> <span class="mi">00</span>             <span class="no">nopl</span>   <span class="mi">0x0</span><span class="p">(</span><span class="nv">%rax</span><span class="p">)</span>
+</code></pre></div>
+<p>我该怎么跟你们解释汇编呢？这样吧，我干脆不解释了吧，嗯嗯，就这样了</p>
+<p>看左边那些长短不齐的数字，就是我说的cpu执行的指令，x86架构的，而1+1部分，说实话我想给各位看的，但是编译器自动给优化了，看到那个<code>$0x2</code>没，编译器直接给优化出来结果了，正常情况下其实我们可以通过关闭编译器优化来避免这种情况，但是由于这种级别的优化实在太基础了，我现在是默认关闭优化情况下还是得到了这种结果，所以。。。嗯，就只能这样了，我们有别的解决方法吗？当然是有的，被编译器欺负怎么能行？身为郑州大学的本科生，河南最高学府的学生，我们不应该把编译器按在地上摩擦？(我说这些不会被人打吧)</p>
+<p>解决方法就是采用**内联汇编**</p>
+<p>重写test.c</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// test.c</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">__asm__</span> <span class="n">__volatile__</span><span class="p">(</span>  <span class="c1">//volatile指定编译器不许优化</span>
+            <span class="s">&quot;movl $1, %0</span><span class="se">\n</span><span class="s">&quot;</span>
+            <span class="s">&quot;addl %0, %0</span><span class="se">\n</span><span class="s">&quot;</span>
+            <span class="o">:</span><span class="s">&quot;=r&quot;</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>编译<code>gcc test.c -o test</code></p>
+<p>反汇编<code>objdump -d test</code></p>
+<div class="highlight"><pre><span></span><code><span class="err">00000000000005</span><span class="nf">fa</span> <span class="err">&lt;</span><span class="no">main</span><span class="err">&gt;</span><span class="p">:</span>
+ <span class="err">5</span><span class="nl">fa:</span>   <span class="err">55</span>                      <span class="nf">push</span>   <span class="nv">%rbp</span>
+ <span class="err">5</span><span class="nl">fb:</span>   <span class="err">48</span> <span class="err">89</span> <span class="nf">e5</span>                <span class="no">mov</span>    <span class="nv">%rsp</span><span class="p">,</span><span class="nv">%rbp</span>
+ <span class="err">5</span><span class="nl">fe:</span>   <span class="nf">c7</span> <span class="mi">45</span> <span class="no">fc</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>    <span class="no">movl</span>   <span class="no">$0x0</span><span class="p">,-</span><span class="mi">0x4</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span>
+ <span class="err">605:</span>   <span class="nf">b8</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>          <span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%eax</span>
+ <span class="err">60</span><span class="nl">a:</span>   <span class="err">01</span> <span class="nf">c0</span>                   <span class="no">add</span>    <span class="nv">%eax</span><span class="p">,</span><span class="nv">%eax</span>
+ <span class="err">60</span><span class="nl">c:</span>   <span class="err">89</span> <span class="err">45</span> <span class="nf">fc</span>                <span class="no">mov</span>    <span class="nv">%eax</span><span class="p">,-</span><span class="mi">0x4</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span>
+ <span class="err">60</span><span class="nl">f:</span>   <span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>          <span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+ <span class="err">614:</span>   <span class="err">5</span><span class="nf">d</span>                      <span class="no">pop</span>    <span class="nv">%rbp</span>
+ <span class="err">615:</span>   <span class="nf">c3</span>                      <span class="no">retq</span>   
+ <span class="mi">616</span><span class="p">:</span>   <span class="mi">66</span> <span class="mi">2</span><span class="no">e</span> <span class="mi">0</span><span class="no">f</span> <span class="mi">1</span><span class="no">f</span> <span class="mi">84</span> <span class="mi">00</span> <span class="mi">00</span>    <span class="no">nopw</span>   <span class="nv">%cs</span><span class="p">:</span><span class="mi">0x0</span><span class="p">(</span><span class="nv">%rax</span><span class="p">,</span><span class="nv">%rax</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>大家自己欣赏欣赏。</p>
+<p>那么以上呢，我们算是明白了cpu运行的指令是什么了，也知道1+1对应的指令是个什么样了，但是呢我们还是不清楚这些个指令是怎么生成的，以及编译完后生成的可执行文件里面到底有什么，以及可执行文件是怎么让cpu去执行这么些个指令的，还有编译这个过程发生了什么等等等等，这些下次再写吧</p>
+<p>我就先溜了，等下次我有心情写(二)了再见，拜拜</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../experience/further_education/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              读研
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      
+        <script src="https://cdnjs.loli.net/ajax/libs/pangu/3.3.0/pangu.min.js"></script>
+      
+        <script src="../../static/js/extra.js"></script>
+      
+        <script src="https://cdnjs.loli.net/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

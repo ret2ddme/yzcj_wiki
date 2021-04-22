@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/treasure/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/resource/freshman/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/resource/sophomore/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/resource/junior/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/resource/senior/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/experience/acm/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/experience/ctf/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ddme-code.github.io/yzcj_wiki/experience/further_education/</loc>
-     <lastmod>2021-03-14</lastmod>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://ddme-code.github.io/yzcj_wiki/blog/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%90%E8%A1%8C%E7%9A%84%28%E4%B8%80%29/</loc>
+     <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
